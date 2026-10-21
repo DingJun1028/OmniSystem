@@ -147,6 +147,7 @@ const server = http.createServer(async (req, res) => {
         emit,
         delayMs: Number(process.env.SSAS_PIPELINE_DELAY_MS || 300),
         reasoningMode: process.env.SSAS_REASONING_MODE || 'local',
+        groqKey: process.env.GROQ_API_KEY || null,
       })
         .then((result) => { session.result = result; })
         .catch((err) => {
