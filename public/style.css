@@ -1,0 +1,166 @@
+:root {
+  --ink: #1c1917;
+  --muted: #78716c;
+  --line: #e7e5e4;
+  --bg: #fafaf9;
+  --card: #ffffff;
+  --teal: #0f766e;
+  --amber: #d97706;
+  --red: #b91c1c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 24px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  line-height: 1.6;
+}
+
+main { max-width: 1080px; margin: 0 auto; }
+
+header { max-width: 1080px; margin: 0 auto 20px; }
+header h1 { font-size: 26px; margin: 0; }
+header h1 span { font-size: 15px; color: var(--teal); margin-left: 10px; }
+header p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+
+h2 { font-size: 15px; margin: 0 0 12px; }
+
+textarea {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
+  resize: vertical;
+}
+textarea:focus { outline: 2px solid var(--teal); border-color: transparent; }
+
+.hint { color: var(--muted); font-size: 12px; margin: 6px 0; }
+
+.row { display: flex; align-items: center; gap: 14px; }
+
+button {
+  background: var(--teal);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:hover { background: #0d5f59; }
+button:disabled { opacity: 0.5; cursor: wait; }
+
+.status { font-size: 14px; }
+.status.ok { color: var(--teal); }
+.status.warn { color: var(--amber); }
+
+.layout.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.layout.four { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+@media (max-width: 900px) {
+  .layout.two, .layout.four { grid-template-columns: 1fr; }
+}
+
+#rings { width: 100%; max-width: 440px; display: block; margin: 0 auto; }
+
+.ring {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 2;
+  transition: stroke 0.3s;
+}
+.ring.active { stroke: var(--amber); }
+.ring.done { stroke: var(--teal); }
+.ring.blocked { stroke: var(--red); }
+
+.ring-label {
+  font-size: 11px;
+  fill: var(--muted);
+  text-anchor: middle;
+}
+.core { fill: #fff; stroke: var(--ink); stroke-width: 2; }
+.core-label { font-size: 13px; text-anchor: middle; font-weight: 600; }
+
+#legend {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 16px;
+  font-size: 13px;
+}
+#legend li { color: var(--muted); display: flex; align-items: center; gap: 6px; }
+#legend li em { font-style: normal; font-size: 11px; color: var(--line); }
+#legend li.active { color: var(--amber); }
+#legend li.done { color: var(--teal); }
+#legend li.done em { color: #a8b5b3; }
+#legend li.blocked { color: var(--red); }
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--line);
+  flex: none;
+}
+li.active .dot { background: var(--amber); }
+li.done .dot { background: var(--teal); }
+li.blocked .dot { background: var(--red); }
+
+#log, #memory {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 320px;
+  overflow-y: auto;
+  font-size: 13px;
+}
+#log li {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--line);
+  animation: fadein 0.3s;
+}
+#log li.done { color: var(--teal); }
+#log li.info { color: var(--muted); }
+#log li.blocked { color: var(--red); font-weight: 600; }
+
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+
+.hash { color: var(--muted); font-size: 11px; font-family: ui-monospace, monospace; }
+
+pre {
+  background: #f5f5f4;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 12px;
+  font-family: ui-monospace, monospace;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+  max-height: 260px;
+}
+
+#memory li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+#memory .preview { color: var(--muted); font-size: 12px; font-family: ui-monospace, monospace; }
+#memory .empty { color: var(--muted); border: 0; list-style: none; }

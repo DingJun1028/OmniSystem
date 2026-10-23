@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SSAS 系統框架 · 萬能系統 Console</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>SSAS 系統框架 <span>萬能系統 Console</span></h1>
+    <p>第 0 層需求心核 → 第 9 層演化生長環 · 5T 治理貫穿每一層</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <label for="intent"><strong>需求輸入 · 萬能意圖心核（第 0 層）</strong></label>
+      <textarea id="intent" rows="3" placeholder="輸入你的需求，例如：為 ESG 報告建立自動評分流水線"></textarea>
+      <p class="hint">提示：第 4 層治理閘門會攔截禁用模式 —— 試著輸入「藍紫霓虹」看看閘門拒絕。</p>
+      <div class="row">
+        <button id="run">執行 Pipeline</button>
+        <span id="status" class="status"></span>
+      </div>
+    </section>
+
+    <section class="layout two">
+      <div class="card">
+        <h2>同心圓 · 10 層架構</h2>
+        <svg id="rings" viewBox="0 0 520 520" role="img" aria-label="同心圓層級圖"></svg>
+        <ol id="legend"></ol>
+      </div>
+      <div class="card">
+        <h2>即時串流 · SSE（第 8 層 體驗門戶）</h2>
+        <ul id="log"></ul>
+      </div>
+    </section>
+
+    <section class="layout four">
+      <div class="card"><h2>需求規格 IntentSpec</h2><pre id="out-intent">—</pre></div>
+      <div class="card"><h2>策略 Strategy</h2><pre id="out-strategy">—</pre></div>
+      <div class="card"><h2>ESG 評分 · 決策存證</h2><pre id="out-exec">—</pre></div>
+      <div class="card"><h2>演化報告（第 9 層）</h2><pre id="out-evo">—</pre></div>
+    </section>
+
+    <section class="card">
+      <h2>記憶樞紐 · 5T 存證（第 2 層）</h2>
+      <ul id="memory"></ul>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
