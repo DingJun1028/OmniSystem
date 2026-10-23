@@ -1,0 +1,7 @@
+{
+  "name": "@omnisystem/tech",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SSAS 第 1/2/3/6 層 — 感知雷達 / 記憶樞紐 / 推理大腦 / 執行工坊（技術組 07–12）",
+  "main": "index.js"
+}

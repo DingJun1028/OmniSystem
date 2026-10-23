@@ -1,0 +1,7 @@
+{
+  "name": "@omnisystem/strategy",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SSAS 第 0 層 萬能意圖心核 — IntentExtractor / IntentRegistry / RequirementSpec（策略組 01–06）",
+  "main": "index.js"
+}

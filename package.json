@@ -1,0 +1,11 @@
+{
+  "name": "omnisystem",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SSAS 萬能系統 OmniSystem — 10 層同心圓架構 + 5T 治理",
+  "type": "commonjs",
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "check": "node scripts/check-all.js"
+  }
+}

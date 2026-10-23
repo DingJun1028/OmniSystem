@@ -1,0 +1,7 @@
+{
+  "name": "@omnisystem/creative",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SSAS 第 8 層 萬能體驗門戶 — SSE 串流 / 儀表板 / 視覺化（創意組 13–18）",
+  "main": "index.js"
+}

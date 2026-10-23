@@ -1,0 +1,7 @@
+{
+  "name": "@omnisystem/guard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SSAS 第 4 層 萬能治理閘門 — AuthZ / 合規 / 隱私 / 邊界防護 / 禁用模式（守衛組 25–30）",
+  "main": "index.js"
+}

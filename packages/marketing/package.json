@@ -1,0 +1,7 @@
+{
+  "name": "@omnisystem/marketing",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SSAS 第 5/7/9 層 — 編排中樞 / 整合網絡 / 演化生長環（營銷組 19–24）",
+  "main": "index.js"
+}
