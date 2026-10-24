@@ -21,6 +21,9 @@ export default {
         heading: ['Poppins', 'sans-serif'],
         body: ['Nunito', 'sans-serif'],
       },
+      spacing: {
+        '22': '5.5rem',
+      },
       boxShadow: {
         card: '0 10px 30px rgba(31,29,43,0.08)',
         button: '0 6px 0 #E85A5A',

@@ -36,7 +36,7 @@ export default function GovernanceMatrix() {
                 </td>
                 {ssasMeta.fiveT.map((t) => (
                   <td key={t.key} className="px-4 py-4 text-center">
-                    <span className={`inline-block px-3 py-2 rounded-xl ${t.color} bg-opacity-15 text-ink/90 font-medium`}>
+                    <span className={`inline-block px-3 py-2 rounded-xl ${t.color}/15 text-ink/90 font-medium`}>
                       {row[t.key]}
                     </span>
                   </td>
