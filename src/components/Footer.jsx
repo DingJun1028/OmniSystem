@@ -8,7 +8,7 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl font-heading font-bold mb-3">SSAS 萬能系統框架</h3>
             <p className="text-cream/70 leading-relaxed">
-              以「用戶需求」為萬能心核，同心圓向外擴散；每一層都服務下一層，形成完整客戶旅程。
+              以「用戶需求」為萬能北極星，同心圓向外擴散；每一層都為下一層選擇更好的輸入；整體形成客戶旅程的最佳實踐體驗。
             </p>
           </div>
           <div>
