@@ -3,12 +3,12 @@ import { BookOpen, Heart } from 'lucide-react'
 
 function Footer() {
   return (
-    <footer className="w-full bg-ink text-cream py-12">
-      <div className="max-w-site mx-auto px-6">
+    <footer className="w-full bg-ink text-cream py-10 md:py-12">
+      <div className="max-w-site mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div>
-            <h3 className="text-2xl font-heading font-bold mb-3">SSAS 萬能系統框架</h3>
-            <p className="text-cream/70 leading-relaxed">
+            <h3 className="text-xl sm:text-2xl font-heading font-bold mb-3">SSAS 萬能系統框架</h3>
+            <p className="text-cream/70 leading-relaxed text-sm sm:text-base">
               以「用戶需求」為萬能北極星，同心圓向外擴散；每一層都為下一層選擇更好的輸入；整體形成客戶旅程的最佳實踐體驗。
             </p>
           </div>
