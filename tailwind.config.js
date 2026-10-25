@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -35,6 +36,9 @@ export default {
       },
       maxWidth: {
         'site': '1100px',
+      },
+      screens: {
+        'xs': '480px',
       },
     },
   },
