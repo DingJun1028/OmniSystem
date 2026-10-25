@@ -16,28 +16,29 @@ export const ssasMeta = {
     { name: '客戶旅程中心', desc: '所有設計都服務客戶旅程的最佳實踐體驗' },
   ],
   fiveT: [
-    { key: 'Traceable', label: '可追溯', color: 'bg-coral', text: 'text-coral' },
-    { key: 'Trackable', label: '可追蹤', color: 'bg-sunshine', text: 'text-amber-600' },
-    { key: 'Tangible', label: '可具象', color: 'bg-mint', text: 'text-emerald-600' },
-    { key: 'Transparent', label: '透明', color: 'bg-sky', text: 'text-sky-700' },
-    { key: 'Trustworthy', label: '可信', color: 'bg-lilac', text: 'text-purple-600' },
+    { key: 'Traceable', label: '可追溯', color: 'bg-coral', text: 'text-coral', textOnColor: 'text-white', tint: 'bg-red-100' },
+    { key: 'Trackable', label: '可追踪', color: 'bg-sunshine', text: 'text-amber-600', textOnColor: 'text-ink', tint: 'bg-amber-100' },
+    { key: 'Tangible', label: '可具象', color: 'bg-mint', text: 'text-emerald-600', textOnColor: 'text-ink', tint: 'bg-emerald-100' },
+    { key: 'Transparent', label: '透明', color: 'bg-sky', text: 'text-sky-700', textOnColor: 'text-white', tint: 'bg-sky-100' },
+    { key: 'Trustworthy', label: '可信', color: 'bg-lilac', text: 'text-purple-600', textOnColor: 'text-white', tint: 'bg-purple-100' },
   ],
 }
 
 export const layers = [
   {
     id: 0,
-    name: '萬能意圖心核',
+    name: '萬能意圖核心',
     subtitle: '需求輸入',
     color: 'bg-coral',
     text: 'text-coral',
+    textOnColor: 'text-white',
     tint: 'bg-red-100',
     icon: 'Target',
     duty: [
       '感應用戶核心目標、業務意圖、痛點',
       '將模糊需求轉換為可構造的需求規格（Requirement Specification）',
       '為後續層提供「需求校準」依據',
-      '記錄需求變化，追蹤需求的生命週期',
+      '記錄需求變化，追踪需求的生命週期',
     ],
     components: [
       { name: 'IntentExtractor', desc: '從多來源提取用戶意圖' },
@@ -69,7 +70,7 @@ interface RequirementSpec {
   requirements: {
     functional: string[];      // 功能需求
     non_functional: string[];  // 非功能需求（性能、安全、合規）
-    constraints: string[];     // 约束條件
+    constraints: string[];     // 約束條件
     acceptance_criteria: string[];
   };
   version: string;             // semantic version
@@ -109,6 +110,7 @@ interface RequirementSpec {
     subtitle: '環境輸入',
     color: 'bg-sunshine',
     text: 'text-amber-600',
+    textOnColor: 'text-ink',
     tint: 'bg-amber-100',
     icon: 'Radar',
     duty: [
@@ -144,7 +146,7 @@ interface MultimodalIngestor {
 }`,
     fiveT: {
       Traceable: '每條事件有 source_origin，可追溯來源',
-      Trackable: '事件包含 timestamp 和 session_id，可追蹤流程',
+      Trackable: '事件包含 timestamp 和 session_id，可追踪流程',
       Tangible: '事件以結構化物件呈現，無廢話',
       Transparent: '事件來源、類型、優先級公開',
       Trustworthy: '事件路徑校驗，防止惡意注入（尤其來自外部的事件）',
@@ -165,6 +167,7 @@ interface MultimodalIngestor {
     subtitle: '經驗沉澱',
     color: 'bg-mint',
     text: 'text-emerald-600',
+    textOnColor: 'text-ink',
     tint: 'bg-emerald-100',
     icon: 'Database',
     duty: [
@@ -177,7 +180,7 @@ interface MultimodalIngestor {
       { name: 'MemoryVault', desc: '記憶庫（SQLite / PostgreSQL / TencentDB）' },
       { name: 'MemoryIndex', desc: '記憶索引（向量索引 + 標籤索引）' },
       { name: 'DecisionLogger', desc: '決策日誌（決策、因果、結果）' },
-      { name: 'PreferenceTracker', desc: '用戶偏好追蹤' },
+      { name: 'PreferenceTracker', desc: '用戶偏好追踪' },
       { name: 'CaseRepository', desc: '歷史案例庫' },
     ],
     schema: `interface MemoryEntry {
@@ -238,6 +241,7 @@ interface DecisionRecord {
     subtitle: '認知推理',
     color: 'bg-sky',
     text: 'text-sky-700',
+    textOnColor: 'text-white',
     tint: 'bg-sky-100',
     icon: 'Brain',
     duty: [
@@ -313,6 +317,7 @@ interface StrategyStep {
     subtitle: '安全防護',
     color: 'bg-lilac',
     text: 'text-purple-600',
+    textOnColor: 'text-white',
     tint: 'bg-purple-100',
     icon: 'ShieldCheck',
     duty: [
@@ -320,7 +325,7 @@ interface StrategyStep {
       '合規校驗：確保產出符合法規（ESG 合規、數據保護）',
       '隱私保護：敏感資料處理（遮蔽、去識別化）',
       '邊界防護：防止越權、注入、路徑穿越',
-      '風險拦截：在手數出來前把隱藏風險擋住',
+      '風險攔截：在手數出來前把隱藏風險擋住',
     ],
     components: [
       { name: 'GovernanceGate', desc: '5T 驗證閘門' },
@@ -384,6 +389,7 @@ interface StrategyStep {
     subtitle: '任務規劃',
     color: 'bg-coral',
     text: 'text-coral',
+    textOnColor: 'text-white',
     tint: 'bg-red-100',
     icon: 'GitBranch',
     duty: [
@@ -430,7 +436,7 @@ interface DAGEdge {
 }`,
     fiveT: {
       Traceable: '每個任務有 source_origin（來自哪個決策）',
-      Trackable: '任務狀態、依賴關係、重試次數可追蹤',
+      Trackable: '任務狀態、依賴關係、重試次數可追踪',
       Tangible: '工作流圖可視化，可執行',
       Transparent: '工作流依賴關係公開',
       Trustworthy: '任務執行日誌，失敗時可重試',
@@ -457,6 +463,7 @@ interface DAGEdge {
     subtitle: '實質落地',
     color: 'bg-sunshine',
     text: 'text-amber-600',
+    textOnColor: 'text-ink',
     tint: 'bg-amber-100',
     icon: 'Hammer',
     duty: [
@@ -506,10 +513,10 @@ interface ExecutionResult {
 }`,
     fiveT: {
       Traceable: '每次執行記錄 source_origin、輸入、輸出',
-      Trackable: '執行日誌、時間、資源使用量可追蹤',
+      Trackable: '執行日誌、時間、資源使用量可追踪',
       Tangible: '執行結果可具象化（程式碼、評分、流水線輸出）',
       Transparent: '執行日誌與指標公開',
-      Trustworthy: '結果經過 5 層（治理閘門）驗證',
+      Trustworthy: '執行結果經過 5 層（治理閘門）驗證',
     },
     code: `class ESGScorer {
   async compute(entity: Entity, metrics: Metric[]): Promise<ESGScore> {
@@ -530,6 +537,7 @@ interface ExecutionResult {
     subtitle: '外部連結',
     color: 'bg-mint',
     text: 'text-emerald-600',
+    textOnColor: 'text-ink',
     tint: 'bg-emerald-100',
     icon: 'Globe',
     duty: [
@@ -559,7 +567,7 @@ interface ExecutionResult {
 }`,
     fiveT: {
       Traceable: '每個外部呼叫有 source_origin、請求、響應',
-      Trackable: '呼叫日誌、響應時間、錯誤碼可追蹤',
+      Trackable: '呼叫日誌、響應時間、錯誤碼可追踪',
       Tangible: '外部資料結構化，可用',
       Transparent: '外部 API 鍵、端點公開',
       Trustworthy: 'API 鍵經過加密，請求經過驗證（HMAC）',
@@ -596,6 +604,7 @@ interface ExecutionResult {
     subtitle: '價值交付',
     color: 'bg-sky',
     text: 'text-sky-700',
+    textOnColor: 'text-white',
     tint: 'bg-sky-100',
     icon: 'LayoutDashboard',
     duty: [
@@ -610,7 +619,7 @@ interface ExecutionResult {
       { name: 'DashboardRenderer', desc: '儀表板渲染器' },
       { name: 'VisualizationEngine', desc: '視覺化引擎' },
       { name: 'FeedbackCollector', desc: '反饋收集器' },
-      { name: 'ExperienceTracker', desc: '體驗追蹤器' },
+      { name: 'ExperienceTracker', desc: '體驗追踪器' },
     ],
     schema: `interface SSEEvent {
   event: string;                // 'progress' | 'status' | 'result' | 'error'
@@ -668,6 +677,7 @@ interface DashboardMetric {
     subtitle: '持續進化',
     color: 'bg-lilac',
     text: 'text-purple-600',
+    textOnColor: 'text-white',
     tint: 'bg-purple-100',
     icon: 'RefreshCw',
     duty: [
@@ -709,7 +719,7 @@ interface EvolutionResult {
 }`,
     fiveT: {
       Traceable: '每個演化結果記錄 source_origin、依據的數據來源',
-      Trackable: '指標追蹤、模型版本、策略更新歷史',
+      Trackable: '指標追踪、模型版本、策略更新歷史',
       Tangible: '每次演化產出明確的改進報告',
       Transparent: '演化原因、依據、結果公開',
       Trustworthy: '演化結果經過驗證後才能應用',
@@ -773,10 +783,10 @@ export const roadmap = {
     { week: '週 2', goal: '核心層 4–6 驗證', kpi: '5T 通過率 100%，任務流工作流運行' },
     { week: '週 3', goal: '外部連結（7 層）整合', kpi: 'GitHub、Cloudflare 連線成功，事件流測通' },
     { week: '週 4', goal: '體驗門戶（8 層）上線', kpi: 'SSE 串流穩定，儀表板呈現' },
-    { week: '週 5', goal: '演化環（9 層）上線', kpi: '反饋收集、指標追蹤、模型優化' },
+    { week: '週 5', goal: '演化環（9 層）上線', kpi: '反饋收集、指標追踪、模型優化' },
   ],
   componentMapping: [
-    { component: '意圖心核', team: '策略組 (01–06)', path: 'packages/strategy/' },
+    { component: '意圖核心', team: '策略組 (01–06)', path: 'packages/strategy/' },
     { component: '感知雷達', team: '技術組 (07–12)', path: 'packages/tech/' },
     { component: '記憶樞紐', team: '技術組 (07–12)', path: 'packages/tech/' },
     { component: '推理大腦', team: '技術組 (07–12)', path: 'packages/tech/' },
@@ -879,18 +889,18 @@ export const references = [
   'packages/oa-framework — OA 框架',
   'packages/oa-meta-framework — OA 元框架',
   'esggo/README.md — 專案 README',
-  'esggo/CONTRIBUTORS.md — 貢獻者文檔',
+  'esggo/CONTRIBUTORS.md — 貢獻者文件',
   'esggo/OWNERSHIP.md — 所有權文件',
 ]
 
 export const keyRoles = [
-  '萬能意圖心核 — 需求輸入、意圖解析',
+  '萬能意圖核心 — 需求輸入、意圖解析',
   '萬能感知雷達 — 多模態環境輸入、事件收集',
   '萬能記憶樞紐 — 5T 治理存證、歷史案例、偏好',
   '萬能推理大腦 — Groq Qwen 引擎、策略生成、推演',
   '萬能治理閘門 — 權限、合規、隱私、邊界防護',
   '萬能編排中樞 — DAG 工作流、優先順序、依賴',
-  '萬能執行工坊 — 程式碼修復、ESG 評分、流水線',
+  '萬能執行工坊 — 程式碼、ESG 評分、流水線',
   '萬能整合網絡 — GitHub、Cloudflare、SaaS、外部 API',
   '萬能體驗門戶 — SSE 串流、儀表板、視覺化',
   '萬能演化生長環 — 反饋、指標、模型優化、自主迭代',

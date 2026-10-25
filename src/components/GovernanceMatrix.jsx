@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion'
+import { memo } from 'react'
 import { governanceMatrix, ssasMeta, layers } from '../data/ssasData'
 
-export default function GovernanceMatrix() {
+function GovernanceMatrix() {
   return (
     <section id="governance" className="section">
       <div className="text-center mb-10">
@@ -13,35 +13,31 @@ export default function GovernanceMatrix() {
         <table className="w-full min-w-[800px] text-sm">
           <thead>
             <tr className="bg-ink text-cream">
-              <th className="px-4 py-4 text-left rounded-tl-3xl">層級</th>
+              <th scope="col" className="px-4 py-4 text-left rounded-tl-3xl">層級</th>
               {ssasMeta.fiveT.map((t) => (
-                <th key={t.key} className="px-4 py-4 text-center">
-                  <span className={`inline-block chip ${t.color} text-white`}>{t.key}</span>
+                <th key={t.key} scope="col" className="px-4 py-4 text-center">
+                  <span className={`inline-block chip ${t.color} ${t.textOnColor}`}>{t.key}</span>
                 </th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {governanceMatrix.map((row, i) => (
-              <motion.tr
+            {governanceMatrix.map((row) => (
+              <tr
                 key={row.layer}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
                 className="border-b border-ink/5 hover:bg-cream/50 transition-colors"
               >
-                <td className="px-4 py-4 font-bold text-ink">
+                <th scope="row" className="px-4 py-4 font-bold text-ink text-left">
                   L{row.layer} · {layers[row.layer].name}
-                </td>
+                </th>
                 {ssasMeta.fiveT.map((t) => (
                   <td key={t.key} className="px-4 py-4 text-center">
-                    <span className={`inline-block px-3 py-2 rounded-xl ${t.color}/15 text-ink/90 font-medium`}>
+                    <span className={`inline-block px-3 py-2 rounded-xl ${t.tint} text-ink/90 font-medium`}>
                       {row[t.key]}
                     </span>
                   </td>
                 ))}
-              </motion.tr>
+              </tr>
             ))}
           </tbody>
         </table>
@@ -49,3 +45,5 @@ export default function GovernanceMatrix() {
     </section>
   )
 }
+
+export default memo(GovernanceMatrix)

@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion'
+import { memo } from 'react'
 import { User, ArrowRight } from 'lucide-react'
 import { customerJourney, layers } from '../data/ssasData'
 
-export default function CustomerJourney() {
+function CustomerJourney() {
   return (
     <section id="journey" className="section">
       <div className="text-center mb-12">
@@ -16,15 +16,12 @@ export default function CustomerJourney() {
         {customerJourney.map((step, i) => {
           const layer = layers[step.layer]
           return (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="relative flex items-start gap-6 mb-8 last:mb-0"
+              className="relative flex items-start gap-6 mb-8 last:mb-0 animate-fade-in-left"
+              style={{ animationDelay: `${i * 80}ms` }}
             >
-              <div className={`relative z-10 w-16 h-16 md:w-24 md:h-24 rounded-full flex items-center justify-center text-white shrink-0 ${layer.color} shadow-card`}>
+              <div className={`relative z-10 w-16 h-16 md:w-24 md:h-24 rounded-full flex items-center justify-center shrink-0 ${layer.color} ${layer.textOnColor} shadow-card`}>
                 <div className="text-center">
                   <span className="block text-xs font-bold opacity-90">STEP</span>
                   <span className="block text-xl md:text-2xl font-heading font-bold">{i + 1}</span>
@@ -40,25 +37,22 @@ export default function CustomerJourney() {
                 </div>
                 <p className="text-muted">{step.goal}</p>
               </div>
-            </motion.div>
+            </div>
           )
         })}
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="relative flex items-center gap-6 mt-8"
-        >
+        <div className="relative flex items-center gap-6 mt-8 animate-fade-in-right">
           <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-ink text-cream flex items-center justify-center shrink-0 shadow-card">
-            <User size={32} />
+            <User size={32} aria-hidden="true" />
           </div>
           <div className="card flex-1 border-2 border-coral/10 flex items-center gap-3">
-            <ArrowRight size={24} className="text-coral" />
+            <ArrowRight size={24} className="text-coral" aria-hidden="true" />
             <span className="text-lg font-bold text-ink">回到第 0 層，形成閉環迭代</span>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
 }
+
+export default memo(CustomerJourney)

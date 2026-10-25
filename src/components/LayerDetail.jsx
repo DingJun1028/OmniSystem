@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion'
+import { memo } from 'react'
 import { Code, Layers, Shield, CheckCircle } from 'lucide-react'
 import { layers, ssasMeta } from '../data/ssasData'
 
-export default function LayerDetail({ selected }) {
+function LayerDetail({ selected }) {
   if (selected === null) return null
 
   const layer = layers[selected]
@@ -11,7 +11,7 @@ export default function LayerDetail({ selected }) {
     <section className="section pt-0">
       <div className="card border-2 border-coral/10">
         <div className="flex items-center gap-3 mb-6">
-          <span className={`w-12 h-12 rounded-full flex items-center justify-center text-white ${layer.color}`}>
+          <span className={`w-12 h-12 rounded-full flex items-center justify-center ${layer.color} ${layer.textOnColor}`}>
             <span className="font-heading font-bold text-lg">L{layer.id}</span>
           </span>
           <div>
@@ -23,25 +23,25 @@ export default function LayerDetail({ selected }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div>
             <h3 className="text-xl text-ink mb-4 flex items-center gap-2">
-              <Layers size={22} className="text-coral" />
+              <Layers size={22} className="text-coral" aria-hidden="true" />
               核心職責
             </h3>
             <ul className="space-y-3 mb-8">
               {layer.duty.map((d, i) => (
                 <li key={i} className="flex items-start gap-3 text-ink/90">
-                  <CheckCircle size={18} className="text-mint mt-1 shrink-0" />
+                  <CheckCircle size={18} className="text-mint mt-1 shrink-0" aria-hidden="true" />
                   <span>{d}</span>
                 </li>
               ))}
             </ul>
 
             <h3 className="text-xl text-ink mb-4 flex items-center gap-2">
-              <Shield size={22} className="text-coral" />
+              <Shield size={22} className="text-coral" aria-hidden="true" />
               5T 治理實現
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {ssasMeta.fiveT.map((t) => (
-                <div key={t.key} className={`rounded-2xl p-4 ${t.color} bg-opacity-10`}>
+                <div key={t.key} className={`rounded-2xl p-4 ${t.tint}`}>
                   <span className={`text-sm font-bold ${t.text}`}>{t.key}</span>
                   <p className="text-sm text-ink/80 mt-1">{layer.fiveT[t.key]}</p>
                 </div>
@@ -61,7 +61,7 @@ export default function LayerDetail({ selected }) {
             </div>
 
             <h3 className="text-xl text-ink mb-4 flex items-center gap-2">
-              <Code size={22} className="text-coral" />
+              <Code size={22} className="text-coral" aria-hidden="true" />
               關鍵數據形狀
             </h3>
             <pre className="code-block mb-6">
@@ -78,3 +78,5 @@ export default function LayerDetail({ selected }) {
     </section>
   )
 }
+
+export default memo(LayerDetail)

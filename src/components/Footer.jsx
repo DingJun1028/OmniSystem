@@ -1,6 +1,7 @@
-import { Github, BookOpen, Heart } from 'lucide-react'
+import { memo } from 'react'
+import { BookOpen, Heart } from 'lucide-react'
 
-export default function Footer() {
+function Footer() {
   return (
     <footer className="w-full bg-ink text-cream py-12">
       <div className="max-w-site mx-auto px-6">
@@ -13,7 +14,7 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="font-bold mb-3 flex items-center gap-2">
-              <BookOpen size={18} />
+              <BookOpen size={18} aria-hidden="true" />
               參考與延伸
             </h4>
             <ul className="space-y-2 text-cream/70 text-sm">
@@ -28,10 +29,12 @@ export default function Footer() {
         <div className="border-t border-cream/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-cream/60">
           <span>版本 v1.0.0 · 2026-10-16 · 基於 junaikey 萬能元鑰 + 5T 協定</span>
           <span className="flex items-center gap-1">
-            Made with <Heart size={14} className="text-coral" /> for SSAS
+            Made with <Heart size={14} className="text-coral" aria-hidden="true" /> for SSAS
           </span>
         </div>
       </div>
     </footer>
   )
 }
+
+export default memo(Footer)
