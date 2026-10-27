@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OmniSystem · SSAS 萬能系統 Console</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>OmniSystem <span>SSAS 萬能系統</span></h1>
+    <p>第 0 層需求心核 → 第 9 層演化生長環 · 5T 治理貫穿每一層</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <label for="intent"><strong>需求輸入 · 萬能意圖心核（第 0 層）</strong></label>
+      <textarea id="intent" rows="3" placeholder="輸入你的需求，例如：為 ESG 報告建立自動評分流水線"></textarea>
+      <p class="hint">提示：第 4 層治理閘門會攔截禁用模式 —— 試著輸入「藍紫霓虹」看看閘門拒絕。</p>
+      <div class="row">
+        <button id="run">執行 Pipeline</button>
+        <span id="status" class="status"></span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>同心圓 · 10 層架構</h2>
+      <svg id="rings" viewBox="0 0 520 520" role="img" aria-label="10 層同心圓架構圖"></svg>
+    </section>
+
+    <section class="card">
+      <h2>即時 Pipeline 日誌（SSE）</h2>
+      <div id="log" class="log"></div>
+    </section>
+
+    <section class="layout">
+      <div class="card"><h2>IntentSpec（第 0 層）</h2><pre id="spec" class="out">—</pre></div>
+      <div class="card"><h2>策略 · 推理大腦（第 3 層）</h2><pre id="strategy" class="out">—</pre></div>
+      <div class="card"><h2>ESG 評分（第 6 層）</h2><div id="esg" class="esg">—</div></div>
+      <div class="card"><h2>演化建議（第 9 層）</h2><pre id="evo" class="out">—</pre></div>
+    </section>
+
+    <section class="card">
+      <div class="row spread">
+        <h2 style="margin: 0">記憶樞紐 · 5T 存證（第 2 層）</h2>
+        <button id="refresh" class="ghost">刷新</button>
+      </div>
+      <div class="table-wrap">
+        <table id="memtable">
+          <thead>
+            <tr><th>Hash Lock</th><th>來源</th><th>內容</th><th>時間</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p id="memempty" class="hint" hidden>尚無記憶。</p>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
