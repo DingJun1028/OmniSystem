@@ -17,7 +17,7 @@ cp .env.example .env
 # 2. 啟動（無需 npm install —— 零依賴）
 npm start            # = node server.js
 # 或開發模式（存檔即自動重啟）
-npm run dev          # = node --watch server.js
+npm run dev:server   # = node --watch server.js
 ```
 
 開啟 http://localhost:3000

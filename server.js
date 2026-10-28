@@ -1,8 +1,13 @@
 'use strict';
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-const crypto = require('crypto');
+import http from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import MemoryVault from './lib/memory.js';
+import { runPipeline } from './lib/pipeline.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // ── .env 載入器（零依賴；讀取專案根目錄 .env，不覆蓋已存在的環境變數）──
 function loadEnv() {
@@ -23,9 +28,6 @@ function loadEnv() {
   }
 }
 loadEnv();
-
-const MemoryVault = require('./lib/memory');
-const { runPipeline } = require('./lib/pipeline');
 
 const HOST = process.env.HOST || '0.0.0.0';
 const PORT = Number(process.env.PORT || 3000);
