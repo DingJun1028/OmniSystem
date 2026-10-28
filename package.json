@@ -2,9 +2,13 @@
   "name": "ssas-framework-portal",
   "private": true,
   "version": "1.1.0",
+  "description": "SSAS 萬能系統 — 10 層同心圓架構 + 5T 治理，零依賴 Node.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
+    "start": "node server.js",
     "dev": "vite",
+    "dev:server": "node --watch server.js",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -23,5 +27,8 @@
     "tailwindcss": "3.4.17",
     "terser": "^5.31.6",
     "vite": "7.3.1"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
